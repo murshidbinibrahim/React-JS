@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+
+    <div id="root">
+
+    </div>
+
+    
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- React DOM Manipulation -->
+
+    <script> 
+        
+        const heading = React.createElement("h1",{id : "title"},"Hello World from React1");
+        const heading2 = React.createElement("h2",{id : "title2"},"Hello World from React2");
+
+        const container = React.createElement("div",{id:"container"},[heading, heading2]);
+        //console.log(heading);
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+
+        //passing a react element inside the root
+        root.render(container);
+
+    </script>
+
+
+    <!-- JS DOM Manipulation -->
+
+    <!-- <script>
+
+        const heading = document.createElement("h1");
+        
+        heading.innerHTML = "Hello World JS";
+
+        const root = document.getElementById("root");
+
+        root.appendChild(heading);
+
+    </script> -->
+    </body>
+</html>
