@@ -1,0 +1,26 @@
+{
+  "name": "react-js",
+  "version": "1.0.0",
+  "description": "This is a Learn React JS ",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/murshidbinibrahim/React-JS.git"
+  },
+  "author": "DevMK",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/murshidbinibrahim/React-JS/issues"
+  },
+  "homepage": "https://github.com/murshidbinibrahim/React-JS#readme",
+  "devDependencies": {
+    "parcel": "^2.8.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
