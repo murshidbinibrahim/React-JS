@@ -21,14 +21,16 @@ import ReactDOM from "react-dom/client";
     + Manage port numbers
     + Consistent Hashing Algorithm
     + Zero Config
-    + 
+    + Tree Shaking - removing unwanted code
 
 // Transitive Dependencies
 
 */ 
 
-const heading = React.createElement("h1",{id : "title"},"Hello World from parcel-bundler");
-const heading2 = React.createElement("h2",{id : "title2"},"Hello World from React2");
+const heading = React.createElement("h1",{id : "title", key : "001"},"Hello World from parcel-bundler");
+const heading2 = React.createElement("h2",{id : "title2", key : "002"},"Hello World from React2");
+
+// React.createElement ==> Object ==> HTML(DOM)
 
 const container = React.createElement("div",{id:"container" , myprops : "props-sample"},[heading, heading2]);
 //console.log(heading);
@@ -46,3 +48,28 @@ root.render(container);
 // const root = document.getElementById("root");
 
 // root.appendChild(heading);
+
+
+//---> Without using JSX <---//
+
+/*
+        <div class="header">
+            <h1>Learn React</h1>
+            <ul>
+                <li>Home</li>
+                <li>About Us</li>
+                <li>Contact Us</li>
+            </ul>
+        </div> */
+/*
+
+# Similar to React.createElement 
+
+const container = React.createElement("div",{id:"header" , myprops : "props-sample"},[
+    React.createElement("h1",{id : "title", key : "001"},"Hello World from parcel-bundler"),
+    React.createElement("ul",{},[
+        React.createElement("li",{},"Home",
+        React.createElement("li",{},"About Us"),
+        React.createElement("li",{},"Contact Us")
+        )]),
+]); */
