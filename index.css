@@ -6,6 +6,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 5px;
   border: 1px solid;
 }
 
@@ -22,4 +23,20 @@
 
 .logo {
   width: 200px;
+}
+
+.card {
+  width: 225px;
+  border: 1px solid;
+  padding: 10px;
+  margin: 5px;
+}
+
+.card > img {
+  width: 100%;
+}
+
+.restaurant-list {
+  display: flex;
+  justify-content: space-between;
 }
