@@ -27,41 +27,6 @@ const Header = () => {
   );
 };
 
-// Config Driven UI (Depends on area ... UI Driven by config file in Backend)
-
-/* const config = [
-  {
-    type: "carousal",
-    cards: [
-      {
-        offerName: "50% Off",
-      },
-      {
-        offerName: "Delivery Charge Free",
-      },
-    ],
-  },
-  {
-    type: "restaurants",
-    cards: [
-      {
-        image:
-          "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/0e8f93a56b93e43d7627c2c21bc1106c",
-        name: "Mc.Donalds",
-        cuisines: ["Burgers", "Cafe", "Desserts"],
-        rating: 4.5,
-      },
-      {
-        image:
-          "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/0e8f93a56b93e43d7627c2c21bc1106c",
-        name: "Mc.Donalds",
-        cuisines: ["Burgers", "Cafe", "Desserts"],
-        rating: 4.5,
-      },
-    ],
-  },
-]; */
-
 const restaurantList = [
   {
     type: "restaurant",
@@ -1067,19 +1032,26 @@ const restaurantList = [
   },
 ];
 
-const RestuarantCard = () => {
+//props is normal function parameter - react wraps up all properties into this variable props
+
+const RestuarantCard = (props) => {
+  //console.log(props);
+  const { restaurant } = props; // object destructuring
+  //console.log(restaurant);
+  const { cloudinaryImageId, name, cuisines, avgRating } = restaurant.data; // again destructuring
+  //console.log(name);
   return (
     <div className="card">
       <img
         src={
           "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
-          restaurantList[0].data.cloudinaryImageId
+          cloudinaryImageId
         }
-        alt="restuarant"
+        alt="restaurant"
       />
-      <h2>{restaurantList[0].data.name}</h2>
-      <h3>{restaurantList[0].data.cuisines?.join(", ")}</h3>
-      <h4>{restaurantList[0].data.avgRating} stars</h4>
+      <h2>{name}</h2>
+      <h3>{cuisines?.join(", ")}</h3>
+      <h4>{avgRating} stars</h4>
     </div>
   );
 };
@@ -1087,13 +1059,16 @@ const RestuarantCard = () => {
 const Body = () => {
   return (
     <div className="restaurant-list">
-      <RestuarantCard />
-      <RestuarantCard />
-      <RestuarantCard />
-      <RestuarantCard />
-      <RestuarantCard />
-      <RestuarantCard />
-      <RestuarantCard />
+      {
+        // It is Basically like a function call - like - RestuarantCard(restaurant) - argument
+      }
+      <RestuarantCard restaurant={restaurantList[0]} />
+      <RestuarantCard restaurant={restaurantList[1]} />
+      <RestuarantCard restaurant={restaurantList[2]} />
+      <RestuarantCard restaurant={restaurantList[3]} />
+      <RestuarantCard restaurant={restaurantList[4]} />
+      <RestuarantCard restaurant={restaurantList[5]} />
+      <RestuarantCard restaurant={restaurantList[6]} />
     </div>
   );
 };
