@@ -887,159 +887,11 @@ const restaurantList = [
     },
     subtype: "basic",
   },
-  {
-    type: "restaurant",
-    data: {
-      type: "F",
-      id: "160737",
-      name: "Zam Zam Restaurant",
-      uuid: "b645916c-7981-4178-a364-e5597dfff40e",
-      city: "61",
-      area: "Vellayil",
-      totalRatingsString: "5000+ ratings",
-      cloudinaryImageId: "20c867a00224918971fbcd92583190fe",
-      cuisines: [
-        "Pastas",
-        "Chinese",
-        "North Indian",
-        "South Indian",
-        "Ice Cream",
-        "Biryani",
-      ],
-      tags: [],
-      costForTwo: 30000,
-      costForTwoString: "₹300 FOR TWO",
-      deliveryTime: 47,
-      minDeliveryTime: 47,
-      maxDeliveryTime: 47,
-      slaString: "47 MINS",
-      lastMileTravel: 1,
-      slugs: {
-        restaurant: "zam-zam-restaurant-beach-road-beach-road",
-        city: "kozhikode",
-      },
-      cityState: "61",
-      address:
-        "Red Cross Rd, Opposite Tagore Hall, Vellayil, Kozhikode, Kerala 673032, India",
-      locality: "Beach Road",
-      parentId: 8883,
-      unserviceable: false,
-      veg: false,
-      select: false,
-      favorite: false,
-      tradeCampaignHeaders: [],
-      aggregatedDiscountInfo: {
-        header: "50% off",
-        shortDescriptionList: [
-          {
-            meta: "50% off | Use TRYNEW",
-            discountType: "Percentage",
-            operationType: "RESTAURANT",
-          },
-        ],
-        descriptionList: [
-          {
-            meta: "50% off up to ₹100 | Use code TRYNEW",
-            discountType: "Percentage",
-            operationType: "RESTAURANT",
-          },
-        ],
-        subHeader: "",
-        headerType: 0,
-        superFreedel: "",
-      },
-      aggregatedDiscountInfoV2: {
-        header: "50% OFF",
-        shortDescriptionList: [
-          {
-            meta: "Use TRYNEW",
-            discountType: "Percentage",
-            operationType: "RESTAURANT",
-          },
-        ],
-        descriptionList: [
-          {
-            meta: "50% off up to ₹100 | Use code TRYNEW",
-            discountType: "Percentage",
-            operationType: "RESTAURANT",
-          },
-        ],
-        subHeader: "",
-        headerType: 0,
-        superFreedel: "",
-      },
-      chain: [],
-      feeDetails: {
-        fees: [
-          {
-            name: "distance",
-            fee: 1900,
-            message: "",
-          },
-          {
-            name: "time",
-            fee: 0,
-            message: "",
-          },
-          {
-            name: "special",
-            fee: 0,
-            message: "",
-          },
-        ],
-        totalFees: 1900,
-        message: "",
-        title: "Delivery Charge",
-        amount: "1900",
-        icon: "",
-      },
-      availability: {
-        opened: true,
-        nextOpenMessage: "",
-        nextCloseMessage: "",
-      },
-      longDistanceEnabled: 0,
-      rainMode: "NONE",
-      thirdPartyAddress: false,
-      thirdPartyVendor: "",
-      adTrackingID: "",
-      badges: {
-        imageBased: [],
-        textBased: [],
-        textExtendedBadges: [],
-      },
-      lastMileTravelString: "1 kms",
-      hasSurge: false,
-      sla: {
-        restaurantId: "160737",
-        deliveryTime: 47,
-        minDeliveryTime: 47,
-        maxDeliveryTime: 47,
-        lastMileTravel: 1,
-        lastMileDistance: 0,
-        serviceability: "SERVICEABLE",
-        rainMode: "NONE",
-        longDistance: "NOT_LONG_DISTANCE",
-        preferentialService: false,
-        iconType: "EMPTY",
-      },
-      promoted: false,
-      avgRating: "3.7",
-      totalRatings: 5000,
-      new: false,
-    },
-    subtype: "basic",
-  },
 ];
 
 //props is normal function parameter - react wraps up all properties into this variable props
 
 const RestuarantCard = ({ cloudinaryImageId, name, cuisines, avgRating }) => {
-  //console.log(props);
-  //const { restaurant } = props; // object destructuring
-  //console.log(restaurant);
-  //const { cloudinaryImageId, name, cuisines, avgRating } = restaurant.data; // again destructuring
-  //console.log(name);
   return (
     <div className="card">
       <img
@@ -1056,19 +908,19 @@ const RestuarantCard = ({ cloudinaryImageId, name, cuisines, avgRating }) => {
   );
 };
 
+// nokey (not acceptible) <<< index key (use only if you don't have any key) <<< unique key (Best Way)
+
 const Body = () => {
   return (
     <div className="restaurant-list">
       {
-        // Instead of writing each prop individually - we use spread operator
+        // Instead of using for loop - we use map function (map is the best way to do functional programming)
+        restaurantList.map((restaurant) => {
+          return (
+            <RestuarantCard {...restaurant.data} key={restaurant.data.id} />
+          );
+        })
       }
-      <RestuarantCard {...restaurantList[0].data} />
-      <RestuarantCard {...restaurantList[1].data} />
-      <RestuarantCard {...restaurantList[2].data} />
-      <RestuarantCard {...restaurantList[3].data} />
-      <RestuarantCard {...restaurantList[4].data} />
-      <RestuarantCard {...restaurantList[5].data} />
-      <RestuarantCard {...restaurantList[6].data} />
     </div>
   );
 };
