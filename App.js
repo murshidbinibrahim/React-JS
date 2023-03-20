@@ -1034,11 +1034,11 @@ const restaurantList = [
 
 //props is normal function parameter - react wraps up all properties into this variable props
 
-const RestuarantCard = (props) => {
+const RestuarantCard = ({ cloudinaryImageId, name, cuisines, avgRating }) => {
   //console.log(props);
-  const { restaurant } = props; // object destructuring
+  //const { restaurant } = props; // object destructuring
   //console.log(restaurant);
-  const { cloudinaryImageId, name, cuisines, avgRating } = restaurant.data; // again destructuring
+  //const { cloudinaryImageId, name, cuisines, avgRating } = restaurant.data; // again destructuring
   //console.log(name);
   return (
     <div className="card">
@@ -1062,13 +1062,48 @@ const Body = () => {
       {
         // It is Basically like a function call - like - RestuarantCard(restaurant) - argument
       }
-      <RestuarantCard restaurant={restaurantList[0]} />
-      <RestuarantCard restaurant={restaurantList[1]} />
-      <RestuarantCard restaurant={restaurantList[2]} />
-      <RestuarantCard restaurant={restaurantList[3]} />
-      <RestuarantCard restaurant={restaurantList[4]} />
-      <RestuarantCard restaurant={restaurantList[5]} />
-      <RestuarantCard restaurant={restaurantList[6]} />
+      <RestuarantCard
+        cloudinaryImageId={restaurantList[0].data.cloudinaryImageId}
+        name={restaurantList[0].data.name}
+        cuisines={restaurantList[0].data.cuisines}
+        avgRating={restaurantList[0].data.avgRating}
+      />
+      <RestuarantCard
+        cloudinaryImageId={restaurantList[1].data.cloudinaryImageId}
+        name={restaurantList[1].data.name}
+        cuisines={restaurantList[1].data.cuisines}
+        avgRating={restaurantList[1].data.avgRating}
+      />
+      <RestuarantCard
+        cloudinaryImageId={restaurantList[2].data.cloudinaryImageId}
+        name={restaurantList[2].data.name}
+        cuisines={restaurantList[2].data.cuisines}
+        avgRating={restaurantList[2].data.avgRating}
+      />
+      <RestuarantCard
+        cloudinaryImageId={restaurantList[3].data.cloudinaryImageId}
+        name={restaurantList[3].data.name}
+        cuisines={restaurantList[3].data.cuisines}
+        avgRating={restaurantList[3].data.avgRating}
+      />
+      <RestuarantCard
+        cloudinaryImageId={restaurantList[4].data.cloudinaryImageId}
+        name={restaurantList[4].data.name}
+        cuisines={restaurantList[4].data.cuisines}
+        avgRating={restaurantList[4].data.avgRating}
+      />
+      <RestuarantCard
+        cloudinaryImageId={restaurantList[5].data.cloudinaryImageId}
+        name={restaurantList[5].data.name}
+        cuisines={restaurantList[5].data.cuisines}
+        avgRating={restaurantList[5].data.avgRating}
+      />
+      <RestuarantCard
+        cloudinaryImageId={restaurantList[6].data.cloudinaryImageId}
+        name={restaurantList[6].data.name}
+        cuisines={restaurantList[6].data.cuisines}
+        avgRating={restaurantList[6].data.avgRating}
+      />
     </div>
   );
 };
