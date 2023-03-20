@@ -1060,50 +1060,15 @@ const Body = () => {
   return (
     <div className="restaurant-list">
       {
-        // It is Basically like a function call - like - RestuarantCard(restaurant) - argument
+        // Instead of writing each prop individually - we use spread operator
       }
-      <RestuarantCard
-        cloudinaryImageId={restaurantList[0].data.cloudinaryImageId}
-        name={restaurantList[0].data.name}
-        cuisines={restaurantList[0].data.cuisines}
-        avgRating={restaurantList[0].data.avgRating}
-      />
-      <RestuarantCard
-        cloudinaryImageId={restaurantList[1].data.cloudinaryImageId}
-        name={restaurantList[1].data.name}
-        cuisines={restaurantList[1].data.cuisines}
-        avgRating={restaurantList[1].data.avgRating}
-      />
-      <RestuarantCard
-        cloudinaryImageId={restaurantList[2].data.cloudinaryImageId}
-        name={restaurantList[2].data.name}
-        cuisines={restaurantList[2].data.cuisines}
-        avgRating={restaurantList[2].data.avgRating}
-      />
-      <RestuarantCard
-        cloudinaryImageId={restaurantList[3].data.cloudinaryImageId}
-        name={restaurantList[3].data.name}
-        cuisines={restaurantList[3].data.cuisines}
-        avgRating={restaurantList[3].data.avgRating}
-      />
-      <RestuarantCard
-        cloudinaryImageId={restaurantList[4].data.cloudinaryImageId}
-        name={restaurantList[4].data.name}
-        cuisines={restaurantList[4].data.cuisines}
-        avgRating={restaurantList[4].data.avgRating}
-      />
-      <RestuarantCard
-        cloudinaryImageId={restaurantList[5].data.cloudinaryImageId}
-        name={restaurantList[5].data.name}
-        cuisines={restaurantList[5].data.cuisines}
-        avgRating={restaurantList[5].data.avgRating}
-      />
-      <RestuarantCard
-        cloudinaryImageId={restaurantList[6].data.cloudinaryImageId}
-        name={restaurantList[6].data.name}
-        cuisines={restaurantList[6].data.cuisines}
-        avgRating={restaurantList[6].data.avgRating}
-      />
+      <RestuarantCard {...restaurantList[0].data} />
+      <RestuarantCard {...restaurantList[1].data} />
+      <RestuarantCard {...restaurantList[2].data} />
+      <RestuarantCard {...restaurantList[3].data} />
+      <RestuarantCard {...restaurantList[4].data} />
+      <RestuarantCard {...restaurantList[5].data} />
+      <RestuarantCard {...restaurantList[6].data} />
     </div>
   );
 };
