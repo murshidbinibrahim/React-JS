@@ -27,49 +27,29 @@ import ReactDOM from "react-dom/client";
 
 */ 
 
-const heading = React.createElement("h1",{id : "title", key : "001"},"Hello World from parcel-bundler");
-const heading2 = React.createElement("h2",{id : "title2", key : "002"},"Hello World from React2");
+//React.createElement
+
+const heading = React.createElement("h1",{id : "title", key : "001"},"Hello World - React.createElement");
 
 // React.createElement ==> Object ==> HTML(DOM)
 
-const container = React.createElement("div",{id:"container" , myprops : "props-sample"},[heading, heading2]);
-//console.log(heading);
+console.log(heading);
+
+// JSX Express
+
+const heading_jsx = (
+    <h1 id="title" key="002"> Hello World - JSX</h1>
+)
+
+//JSX ==> React.createElement ==> Object ==> HTML(DOM)
+
+console.log(heading_jsx);
+
+
+
+const container = React.createElement("div",{id:"container" , myprops : "props-sample"},[heading, heading_jsx]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-//passing a react element inside the root (modify our dom)
 root.render(container);
 
-/* JS DOM Manipulation */
-
-// const heading = document.createElement("h1");
-        
-// heading.innerHTML = "Hello World JS";
-
-// const root = document.getElementById("root");
-
-// root.appendChild(heading);
-
-
-//---> Without using JSX <---//
-
-/*
-        <div class="header">
-            <h1>Learn React</h1>
-            <ul>
-                <li>Home</li>
-                <li>About Us</li>
-                <li>Contact Us</li>
-            </ul>
-        </div> */
-/*
-
-# Similar to React.createElement 
-
-const container = React.createElement("div",{id:"header" , myprops : "props-sample"},[
-    React.createElement("h1",{id : "title", key : "001"},"Hello World from parcel-bundler"),
-    React.createElement("ul",{},[
-        React.createElement("li",{},"Home",
-        React.createElement("li",{},"About Us"),
-        React.createElement("li",{},"Contact Us")
-        )]),
-]); */
