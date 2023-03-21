@@ -2,11 +2,16 @@ import { restaurantList } from "../constants";
 import { useState } from "react";
 import RestuarantCard from "./RestaurantCard";
 
-const Body = () => {
-  //searchTxt is a local state variable
-  const [searchInput, setSearchInput] = useState(""); //To create state variable
+function filterData(searchInput, restaurants) {
+  const filteredData = restaurants.filter((restaurant) => {
+    return restaurant.data.name.includes(searchInput);
+  });
+  return filteredData;
+}
 
-  const [btnClicked, setBtnClicked] = useState("true");
+const Body = () => {
+  const [restaurants, setRestaurants] = useState(restaurantList);
+  const [searchInput, setSearchInput] = useState("");
 
   return (
     <>
@@ -22,21 +27,19 @@ const Body = () => {
           type="submit"
           className="search-btn"
           onClick={() => {
-            if (btnClicked === "true") {
-              setBtnClicked("false");
-            } else {
-              setBtnClicked("true");
-            }
+            //Need to filter restuarant data
+            const data = filterData(searchInput, restaurants);
+            //Update the restaurants - state
+            setRestaurants(data);
           }}
         >
           Search
         </button>
-        <h1>{btnClicked}</h1>
       </div>
       <div className="restaurant-list">
         {
           // Instead of using for loop - we use map function (map is the best way to do functional programming)
-          restaurantList.map((restaurant) => {
+          restaurants.map((restaurant) => {
             return (
               <RestuarantCard {...restaurant.data} key={restaurant.data.id} />
             );
