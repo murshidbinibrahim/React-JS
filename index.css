@@ -48,3 +48,9 @@
   border: 1px solid;
   margin: 5px;
 }
+
+.search-container {
+  margin-left: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
