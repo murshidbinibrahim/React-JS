@@ -53,4 +53,16 @@
   margin-left: 5px;
   margin-top: 10px;
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.search-text {
+  width: 250px;
+  height: 25px;
+}
+
+.search-btn {
+  width: 100px;
+  height: 32px;
 }
