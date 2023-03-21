@@ -12,18 +12,22 @@ function filterData(searchInput, restaurants) {
 const Body = () => {
   const [restaurants, setRestaurants] = useState(restaurantList);
   const [searchInput, setSearchInput] = useState("");
-  //console.log(restaurants);
-
-  //Empty Dependency Array - Once after render
-  //Dependency Array [searchInput] - Once after initial render - everytime after render (searchInput changes)
-  //Dependency Array [restaurants] - Once after initial render - everytime after render (restaurants changes - on BtnClick)
 
   useEffect(() => {
-    //Best place to make an API Call
-    console.log("useEffect()-initial + call this when dependency change");
+    getRestaurants();
   }, []);
 
-  console.log("render()- initial + call every state and props change");
+  async function getRestaurants() {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=11.2587531&lng=75.78041&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await data.json();
+    console.log(json);
+    //Optional Chaining
+    setRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+  }
+
+  console.log("render()");
 
   return (
     <>
