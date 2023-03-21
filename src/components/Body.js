@@ -1,19 +1,24 @@
 import { restaurantList } from "../constants";
 import { useState, useEffect } from "react";
 import RestuarantCard from "./RestaurantCard";
+import Shimmer from "./Shimmer";
 
 function filterData(searchInput, restaurants) {
   const filteredData = restaurants.filter((restaurant) => {
-    return restaurant.data.name.includes(searchInput);
+    return restaurant?.data?.name
+      ?.toLowerCase()
+      .includes(searchInput.toLowerCase());
   });
   return filteredData;
 }
 
 const Body = () => {
-  const [restaurants, setRestaurants] = useState(restaurantList);
+  const [allRestaurants, setAllRestaurants] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
+    //Best place to make an API Call
     getRestaurants();
   }, []);
 
@@ -24,12 +29,21 @@ const Body = () => {
     const json = await data.json();
     console.log(json);
     //Optional Chaining
-    setRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+    setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+    setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
   }
 
   console.log("render()");
 
-  return (
+  if (!allRestaurants) return null;
+
+  //  if (filteredRestaurants?.length === 0) return <h1>No Product Found!!!</h1>;
+
+  //Conditional Rendering
+
+  return allRestaurants?.length === 0 ? (
+    <Shimmer />
+  ) : (
     <>
       <div className="search-container">
         <input
@@ -44,9 +58,9 @@ const Body = () => {
           className="search-btn"
           onClick={() => {
             //Need to filter restuarant data
-            const data = filterData(searchInput, restaurants);
+            const data = filterData(searchInput, allRestaurants);
             //Update the restaurants - state
-            setRestaurants(data);
+            setFilteredRestaurants(data);
           }}
         >
           Search
@@ -55,7 +69,7 @@ const Body = () => {
       <div className="restaurant-list">
         {
           // Instead of using for loop - we use map function (map is the best way to do functional programming)
-          restaurants.map((restaurant) => {
+          filteredRestaurants.map((restaurant) => {
             return (
               <RestuarantCard {...restaurant.data} key={restaurant.data.id} />
             );
