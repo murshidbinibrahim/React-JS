@@ -96,3 +96,8 @@
   height: 10px;
   background-color: lightgray;
 }
+
+.link {
+  text-decoration: none;
+  color: black;
+}
