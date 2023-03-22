@@ -2,6 +2,7 @@ import { restaurantList } from "../constants";
 import { useState, useEffect } from "react";
 import RestuarantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 function filterData(searchInput, restaurants) {
   const filteredData = restaurants.filter((restaurant) => {
@@ -71,7 +72,13 @@ const Body = () => {
           // Instead of using for loop - we use map function (map is the best way to do functional programming)
           filteredRestaurants.map((restaurant) => {
             return (
-              <RestuarantCard {...restaurant.data} key={restaurant.data.id} />
+              <Link
+                to={"/restaurant-menu/" + restaurant.data.id}
+                key={restaurant.data.id}
+                className="restaurant-item"
+              >
+                <RestuarantCard {...restaurant.data} />
+              </Link>
             );
           })
         }
