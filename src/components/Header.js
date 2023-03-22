@@ -1,12 +1,9 @@
 import { useState } from "react";
+import LOGO from "../assets/img/logo-ifood.png";
 
 const Title = () => (
   <a href="/">
-    <img
-      alt="logo"
-      src="https://www.freepnglogos.com/uploads/logo-ifood-png/logo-client-ifood-hd-black-symbol-png-4.png"
-      className="logo"
-    />
+    <img alt="logo" src={LOGO} className="logo" />
   </a>
 );
 
