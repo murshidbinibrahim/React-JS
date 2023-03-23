@@ -43,7 +43,7 @@ class Profile extends React.Component {
   }
 
   componentWillUnmount() {
-    //to handle it properly by using clearInterval() via reference this variable
+    //to handle it properly by using clearInterval() via reference this variable [clean up]
     clearInterval(this.timer);
     //it is called after Update(move to another page)
     console.log("componentWillUnmount");
