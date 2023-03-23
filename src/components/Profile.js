@@ -22,9 +22,27 @@ class Profile extends React.Component {
     this.state = {
       mobile: 7994176757,
     };
+
+    console.log("Constructor");
+  }
+
+  componentDidMount() {
+    //Best place to make an API Call
+    console.log("componentDidMount");
+  }
+
+  componentDidUpdate() {
+    //every state change
+    console.log("componentDidUpdate");
+  }
+
+  componentWillUnmount() {
+    //it is called after Update(move to another page)
+    console.log("componentWillUnmount");
   }
 
   render() {
+    console.log("render");
     return (
       <div>
         <h1>Profile</h1>
