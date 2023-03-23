@@ -28,8 +28,9 @@ class Profile extends React.Component {
 
   componentDidMount() {
     //cons in Single Page Application (still calling (twice +++) move to another page) - [performance loss]
-    //SPA not realad application - just re-render it
-    setInterval(() => {
+    //SPA not reload application - just re-render it
+    //Assign to variable timer for clear Interval
+    this.timer = setInterval(() => {
       console.log("iFood App");
     }, 1000);
     //Best place to make an API Call
@@ -42,6 +43,8 @@ class Profile extends React.Component {
   }
 
   componentWillUnmount() {
+    //to handle it properly by using clearInterval() via reference this variable
+    clearInterval(this.timer);
     //it is called after Update(move to another page)
     console.log("componentWillUnmount");
   }
