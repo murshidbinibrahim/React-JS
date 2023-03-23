@@ -27,6 +27,11 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
+    //cons in Single Page Application (still calling (twice +++) move to another page) - [performance loss]
+    //SPA not realad application - just re-render it
+    setInterval(() => {
+      console.log("iFood App");
+    }, 1000);
     //Best place to make an API Call
     console.log("componentDidMount");
   }
