@@ -10,6 +10,11 @@
   border: 1px solid;
 }
 
+.container {
+  margin: 5px;
+  text-align: center;
+}
+
 .nav-items > ul {
   list-style-type: none;
   font-size: larger;
