@@ -32,6 +32,11 @@ const Header = () => {
             </Link>
           </li>
           <li>Cart</li>
+          <li>
+            <Link to="/instamart" className="link">
+              Instamart
+            </Link>
+          </li>
         </ul>
       </div>
       {isLoggedIn ? (
