@@ -9,6 +9,7 @@ import Contact from "./components/Contact";
 import Profile from "./components/Profile";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import Shimmer from "./components/Shimmer";
 //import Instamart from "./components/Instamart";
 
 //Lazy Loading,Chunking, Code Splitting, Dynamic Bundling, On Demand Loading,Dynamic Import
@@ -58,7 +59,7 @@ const appRouter = createBrowserRouter([
       {
         path: "/instamart",
         element: (
-          <Suspense>
+          <Suspense fallback={<Shimmer />}>
             <Instamart />
           </Suspense>
         ),
