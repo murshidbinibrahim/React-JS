@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React, { lazy } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -9,7 +9,11 @@ import Contact from "./components/Contact";
 import Profile from "./components/Profile";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import Instamart from "./components/Instamart";
+//import Instamart from "./components/Instamart";
+
+//Lazy Loading,Chunking, Code Splitting, Dynamic Bundling, On Demand Loading,Dynamic Import
+
+const Instamart = lazy(() => import("./components/Instamart"));
 
 const AppLayout = () => {
   return (
